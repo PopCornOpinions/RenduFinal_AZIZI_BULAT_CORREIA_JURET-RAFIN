@@ -1,9 +1,7 @@
 DROP DATABASE IF EXISTS PopCornOpinions;
 CREATE DATABASE PopCornOpinions;
 
-drop table if exists Favorite_Movie_List;
 drop table if exists Critic;
-drop table if exists Relationship;
 drop table if exists Movie;
 drop table if exists USERS;
 
@@ -11,7 +9,6 @@ create table USERS (user_id SERIAL PRIMARY KEY, user_pseudo varchar(30) UNIQUE, 
 create table Movie (movie_id SERIAL PRIMARY KEY, movie_title varchar(50), movie_poster varchar(100), movie_description varchar(500), movie_releaseDate Date, movie_filmGenre varchar(32), movie_duration integer, movie_filmDirector varchar(32));
 create table Critic (critic_id SERIAL PRIMARY KEY, critic_date Date, critic_remark varchar(500), critic_mark integer, user_id integer, movie_id integer);
 
-ALTER TABLE Favorite_Movie_List ADD CONSTRAINT pk_favorite PRIMARY KEY (favorite_id);
 
 ALTER TABLE Critic ADD CONSTRAINT fk_criticUser FOREIGN KEY (user_id) REFERENCES USERs(user_id);
 ALTER TABLE Critic ADD CONSTRAINT fk_criticMovie FOREIGN KEY (movie_id) REFERENCES MOVIE(movie_id);

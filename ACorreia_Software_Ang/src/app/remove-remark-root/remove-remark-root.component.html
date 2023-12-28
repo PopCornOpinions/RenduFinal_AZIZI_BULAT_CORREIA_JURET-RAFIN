@@ -1,0 +1,17 @@
+<app-navbar-admin></app-navbar-admin>
+<div *ngIf="critics && critics.length > 0">
+    <div *ngFor="let critic of critics" class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Critique du {{ critic.critic_date | date }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Note : {{ critic.critic_mark }}/10</h6>
+            <p class="card-text">{{ critic.critic_remark }}</p>
+
+            <!-- Ajout des IDs -->
+            <p>ID de la critique : {{ critic.critic_id }}</p>
+            <p>ID de l'utilisateur : {{ critic.user_id }}</p>
+            <p>ID du film : {{ critic.movie_id }}</p>
+
+            <button (click)="submitremove(critic.critic_id)" class="btn btn-danger delete-button">X</button>
+        </div>
+    </div>
+</div>

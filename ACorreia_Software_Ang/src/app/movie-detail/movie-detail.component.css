@@ -1,0 +1,41 @@
+.progress-bar.bg-gradient {
+  background: linear-gradient(to right, lightblue, green) !important; /* Modifiez les couleurs ici */
+}
+.note-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px; /* Ajustez la taille de police selon vos préférences */
+  font-weight: bold;
+  color: black;
+}
+
+.delete-button {
+  font-weight: bold; /* Rend le texte en gras */
+  color: white; /* Couleur du texte en blanc */
+  font-size: larger; /* Augmente la taille de la police */
+}
+
+
+.mat-button-standard {
+  padding: 12px 24px; /* Ajustez la taille du bouton */
+  background-color: #FF5722; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border: none; /* Retirer la bordure */
+  border-radius: 4px; /* Bord arrondi */
+  cursor: pointer; /* Curseur au survol */
+  font-family: 'Roboto', sans-serif; /* Police de caractères */
+}
+
+.mat-button-standard:hover {
+  background-color: white; /* Couleur de fond au survol */
+}
+
+.mat-button-standard:focus {
+  outline: none; /* Retirer le contour au focus */
+}
+.custom-color {
+  background-color: #FFFFFF; /* Votre couleur de fond */
+  color: white; /* Votre couleur de texte */
+}

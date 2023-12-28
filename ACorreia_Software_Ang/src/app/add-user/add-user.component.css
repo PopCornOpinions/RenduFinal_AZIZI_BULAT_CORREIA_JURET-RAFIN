@@ -1,0 +1,30 @@
+.add-user-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add-user-title {
+    margin-bottom: 20px;
+}
+
+.add-user-form {
+    display: flex;
+    flex-direction: column;
+}
+.add-user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Prend la hauteur totale de la vue */
+}
+
+.add-user-form {
+    width: 300px; /* Largeur du formulaire */
+}
+button.mat-raised-button.warn {
+    background-color: red; /* Couleur de fond rouge */
+    color: white; /* Couleur du texte en blanc pour un meilleur contraste */
+    /* Autres styles */
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Popcorn Opinions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #FF0000;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .logo {
+      display: block;
+      margin: 20px auto;
+      width: 100px; /* Ajustez la taille du logo selon vos besoins */
+    }
+
+
+    .search-bar {
+      text-align: center;
+      margin: 20px auto;
+      width: 60%; /* Ajustez la largeur de la barre de recherche selon vos besoins */
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 8px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      padding: 8px 16px;
+      background-color: #FF0000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Popcorn Opinions</h1>
+</header>
+
+<div class="search-bar">
+  <form (ngSubmit)="filterMovies()" #searchForm="ngForm">
+    <input type="text" name="searchTerm" placeholder="Rechercher des films..." [(ngModel)]="searchTerm" (input)="onSearchChange($event)">
+    <button type="submit" class="search-button">Rechercher</button>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let movie of filteredMovies" class="col-md-4">
+      <div class="card mb-4 h-100" style="margin-bottom: 20px;">
+        <img [src]="movie.movie_poster" alt="{{ movie.movie_title }} Poster" class="card-img-top movie-poster" style="margin-top: 10px;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title font-weight-bold mb-0 movie-title">{{ movie.movie_title }}</h5>
+          <p class="card-text flex-grow-1">{{ movie.movie_description }}</p>
+          <a [routerLink]="['/movie', movie.movie_id]" class="btn btn-primary mt-auto">Voir les détails</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

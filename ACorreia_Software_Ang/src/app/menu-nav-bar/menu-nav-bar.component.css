@@ -1,0 +1,7 @@
+.movie-poster {
+  max-width: 150px; /* Définissez la largeur maximale souhaitée */
+  height: auto; /* Assurez-vous que la hauteur s'ajuste automatiquement en fonction de la largeur */
+}
+.spacer {
+  flex-grow: 1; /* Espace flexible pour pousser le bouton à droite */
+}

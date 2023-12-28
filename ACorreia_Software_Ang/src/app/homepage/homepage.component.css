@@ -1,0 +1,28 @@
+.movie-poster {
+    width: 200px; /* Ajustez la largeur selon votre préférence */
+    height: 300px; /* Ajustez la hauteur selon votre préférence */
+    object-fit: cover; /* Assure le redimensionnement sans déformation */
+    display: block;
+    margin: 0 auto; /* Centrer l'image horizontalement */
+}
+.search-button {
+    padding: 10px 20px;
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Ajout d'une transition pour un effet visuel */
+}
+
+.search-button:hover {
+    background-color: #FF8552; /* Couleur légèrement différente au survol */
+}
+.movie-title {
+    font-weight: bold;
+}
+.search-bar {
+    text-align: center;
+    margin: 20px auto;
+    width: 60%; /* Ajustez la largeur de la barre de recherche selon vos besoins */
+}

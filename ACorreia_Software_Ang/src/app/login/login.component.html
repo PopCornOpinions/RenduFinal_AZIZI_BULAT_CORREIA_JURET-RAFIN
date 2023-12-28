@@ -1,0 +1,17 @@
+<div class="login-container">
+    <h1 class="login-title">Bienvenue sur PopCorn Opinions !</h1>
+    <p class="login-subtitle">Merci de vous identifier !</p>
+
+    <form class="login-form" (ngSubmit)="onLogin()">
+        <mat-form-field appearance="fill">
+            <mat-label>Nom d'utilisateur</mat-label>
+            <input matInput type="text" name="username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="password">
+        </mat-form-field>
+        <button id = "btn_login" mat-raised-button color="primary" type="submit" (click)="onLogin()">Se connecter </button>
+        <p class="create-account-link">Vous n'avez pas de compte? <a href="#/adduser">Créer un compte</a></p>
+    </form>
+</div>

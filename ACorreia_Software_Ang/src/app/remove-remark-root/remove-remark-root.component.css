@@ -1,0 +1,5 @@
+.delete-button {
+    font-weight: bold; /* Rend le texte en gras */
+    color: white; /* Couleur du texte en blanc */
+    font-size: larger; /* Augmente la taille de la police */
+}

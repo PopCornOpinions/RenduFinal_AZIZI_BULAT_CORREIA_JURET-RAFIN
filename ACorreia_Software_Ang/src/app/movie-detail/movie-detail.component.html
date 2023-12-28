@@ -1,0 +1,104 @@
+<!-- movie-detail.component.html -->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire de description et de note sur 10</title>
+  <style>
+    /* Ajoutez du CSS pour le style du formulaire si nécessaire */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 13px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #FF0000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<div style="display: flex; justify-content: space-between;">
+  <button mat-button class="mat-button-standard custom-color" (click)="onBack()">PopCorn Opinions</button>
+  <div>
+    <button mat-button class="mat-button-standard custom-color" (click)="onDisconnect()">Disconnect</button>
+  </div>
+</div>
+<div *ngIf="movie[0]" class="card mb-4">
+  <!-- Poster du film -->
+  <img [src]="movie[0].movie_poster" alt="{{ movie[0].movie_title }} Poster"
+       class="card-img-top img-fluid"
+       style="max-height: 400px; max-width: 100%; height: auto; object-fit: contain;">
+
+  <div class="card-footer">
+    <p class="card-text">Note moyenne des utilisateurs: {{ movie[0].averageMark }}/10</p>
+    <div class="progress border" style="height: 20px; width: 70%; margin: 0 auto; position: relative;">
+      <div class="progress-bar bg-gradient border" role="progressbar"
+           [style.width]="movie[0].averageMark * 10 + '%'"
+           attr.aria-valuenow="{{ movie[0].averageMark }}"
+           aria-valuemin="0"
+           aria-valuemax="10">
+        <h2 class="note-mark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">{{ movie[0].averageMark }}/10</h2>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Détails du film -->
+  <div class="card-body">
+    <h5 class="card-title">{{ movie[0].movie_title }}</h5>
+    <p class="card-text">{{ movie[0].movie_description }}</p>
+    <ul>
+      <li><strong>Durée:</strong> {{ movie[0].movie_duration }} minutes</li>
+      <li><strong>Réalisateur:</strong> {{ movie[0].movie_filmdirector }}</li>
+      <li><strong>Genre:</strong> {{ movie[0].movie_filmgenre }}</li>
+      <li><strong>Date de parution:</strong> {{ movie[0].movie_releasedate | date }}</li>
+    </ul>
+  </div>
+
+  <!-- Critiques du film -->
+  <div *ngIf="critics && critics.length > 0">
+    <div *ngFor="let critic of critics" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Critique du {{ critic.critic_date | date }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Note : {{ critic.critic_mark }}/10 par {{critic.user_pseudo}}</h6>
+        <p class="card-text">{{ critic.critic_remark }}
+          <button (click)="submitremove(critic.critic_id)" class="btn btn-danger delete-button">x</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ecriture de la remarque -->
+<body>
+<h1>Ecrivez votre critique</h1>
+<form (ngSubmit)="onSubmit()" #remarkForm="ngForm">
+  <label for="description">Description :</label>
+  <input type="text" id="description" name="description" [(ngModel)]="description" required>
+
+  <label for="note">Note sur 10 :</label>
+  <input type="number" id="note" name="note" [(ngModel)]="note" min="0" max="10" step="0.1" required>
+  <button type="submit" [disabled]="remarkForm.invalid">Soumettre</button>
+</form>
+</body>
+
+
+
